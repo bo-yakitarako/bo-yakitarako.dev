@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import "./bubble.css";
+
+@theme {
+  --color-bg: #e8eef6;
+  --color-bg-secondary: #dde5f0;
+  --color-surface: #ffffff;
+  --color-surface-glass: rgba(255, 255, 255, 0.6);
+
+  --color-text-primary: #1a2b4a;
+  --color-text-secondary: #5a6d8a;
+  --color-text-muted: #8fa0bd;
+
+  --color-accent-blue: #4a9eff;
+  --color-accent-cyan: #22d3ee;
+  --color-accent-purple: #8b5cf6;
+
+  --color-bubble-border: rgba(255, 255, 255, 0.4);
+  --color-bubble-shine: rgba(255, 255, 255, 0.8);
+
+  --font-sans: "Zen Maru Gothic", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-bubble: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::view-transition-old(page-content) {
+  animation: slide-down-fade-out 0.3s var(--ease-smooth) forwards;
+}
+
+::view-transition-new(page-content) {
+  animation: fade-in 0.3s var(--ease-smooth) forwards;
+}
+
+::view-transition-group(header) {
+  animation-duration: 0.3s;
+}
+
+::view-transition-group(avatar) {
+  animation-duration: 0.5s;
+  animation-timing-function: var(--ease-smooth);
+}
+
+@keyframes slide-down-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  canvas {
+    display: none;
+  }
+}

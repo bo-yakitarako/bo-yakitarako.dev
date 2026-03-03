@@ -1,0 +1,81 @@
+@keyframes bubble-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes bubble-float-alt {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-8px) translateX(4px);
+  }
+  50% {
+    transform: translateY(-14px) translateX(-3px);
+  }
+  75% {
+    transform: translateY(-6px) translateX(5px);
+  }
+}
+
+@keyframes bubble-pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-appear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-arrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.bubble-float {
+  animation: bubble-float ease-in-out infinite;
+}
+
+.bubble-float-alt {
+  animation: bubble-float-alt ease-in-out infinite;
+}
+
+.bubble-pop {
+  animation: bubble-pop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.bubble-appear {
+  animation: bubble-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.bounce-arrow {
+  animation: bounce-arrow 1.5s ease-in-out infinite;
+}

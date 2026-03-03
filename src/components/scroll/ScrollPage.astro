@@ -1,0 +1,73 @@
+---
+import BubbleCanvas from "../bubble/BubbleCanvas.tsx";
+import Header from "../global/Header.tsx";
+import ScrollRouter from "./ScrollRouter.tsx";
+import LandingHero from "../landing/LandingHero.tsx";
+import AboutIntro from "../about/AboutIntro.astro";
+import CareerTimeline from "../about/CareerTimeline.astro";
+import TechBubbles from "../bubble/TechBubbles.tsx";
+import WorksBubbleGrid from "../works/WorksBubbleGrid.tsx";
+import ContactIcons from "../contact/ContactIcons.astro";
+import ScrollIndicator from "../global/ScrollIndicator.astro";
+import { techItems } from "../../data/tech";
+import { workItems } from "../../data/works";
+
+interface Props {
+  initialSection?: string;
+}
+
+const { initialSection = "section-top" } = Astro.props;
+---
+
+<BubbleCanvas client:load />
+<Header client:load />
+<ScrollRouter client:load />
+
+<section id="section-top" data-route="/">
+  <LandingHero client:load />
+</section>
+
+<section id="section-about" data-route="/about">
+  <AboutIntro />
+  <ScrollIndicator label="career" />
+</section>
+
+<section id="section-career" data-route="/about/career">
+  <CareerTimeline />
+  <ScrollIndicator label="tech" />
+</section>
+
+<section id="section-tech" data-route="/about/tech">
+  <TechBubbles items={techItems} client:visible />
+  <ScrollIndicator label="works" />
+</section>
+
+<section id="section-works" data-route="/works">
+  <WorksBubbleGrid items={workItems} client:visible />
+  <ScrollIndicator label="contact" />
+</section>
+
+<section id="section-contact" data-route="/contact">
+  <ContactIcons />
+</section>
+
+{initialSection !== "section-top" && (
+  <script is:inline define:vars={{ initialSection }}>
+    const el = document.getElementById(initialSection);
+    if (el) {
+      el.scrollIntoView();
+      const routes = {
+        "section-top": "/",
+        "section-about": "/about",
+        "section-career": "/about/career",
+        "section-tech": "/about/tech",
+        "section-works": "/works",
+        "section-contact": "/contact",
+      };
+      const route = routes[initialSection];
+      if (route) {
+        history.replaceState({ section: initialSection }, "", route);
+      }
+    }
+  </script>
+)}

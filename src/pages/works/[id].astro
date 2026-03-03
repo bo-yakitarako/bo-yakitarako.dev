@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BubbleCanvas from "../../components/bubble/BubbleCanvas.tsx";
+import Header from "../../components/global/Header.tsx";
+import WorkDetail from "../../components/works/WorkDetail.astro";
+import { workItems } from "../../data/works";
+
+export function getStaticPaths() {
+  return workItems.map((work) => ({
+    params: { id: work.id },
+    props: { work },
+  }));
+}
+
+const { work } = Astro.props;
+---
+
+<BaseLayout title={`${work.title} | bo-yakitarako.dev`}>
+  <BubbleCanvas client:load />
+  <Header client:load alwaysVisible={true} />
+  <WorkDetail work={work} />
+</BaseLayout>
