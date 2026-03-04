@@ -1,19 +1,31 @@
+import { useState, useEffect } from "react";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 
 export default function LandingHero() {
   const progress = useScrollProgress("section-top");
+  const [vh, setVh] = useState<number | null>(null);
+
+  useEffect(() => {
+    const update = () => setVh(window.innerHeight);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const textOpacity = Math.max(0, 1 - progress * 6);
   const heroOpacity = Math.max(0, 1 - progress * 5);
   const heroY = -progress * 120;
 
   return (
-    <div className="relative h-screen flex items-center justify-center">
+    <div
+      className="relative flex items-center justify-center"
+      style={{ height: vh ? `${vh}px` : "100dvh" }}
+    >
       <div
         className="flex flex-col items-center z-10"
         style={{
           opacity: heroOpacity,
-          transform: `translateY(${heroY}px)`,
+          transform: `translateY(${heroY - 24}px)`,
           willChange: "transform, opacity",
         }}
       >
