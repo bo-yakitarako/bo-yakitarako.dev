@@ -1,29 +1,20 @@
-import { useState, useEffect } from "react";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 
 export default function LandingHero() {
   const progress = useScrollProgress("section-top");
-  const [windowWidth, setWindowWidth] = useState(800);
 
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const onResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-
-  const textOpacity = Math.max(0, 1 - progress * 4);
-  const avatarScale = 1 - progress * 0.6;
-  const avatarY = -progress * 200;
-  const avatarX = progress * -(windowWidth / 2 - 60);
+  const textOpacity = Math.max(0, 1 - progress * 6);
+  const heroOpacity = Math.max(0, 1 - progress * 5);
+  const heroY = -progress * 120;
 
   return (
     <div className="relative h-screen flex items-center justify-center">
       <div
         className="flex flex-col items-center z-10"
         style={{
-          transform: `translate(${avatarX}px, ${avatarY}px) scale(${avatarScale})`,
-          willChange: "transform",
+          opacity: heroOpacity,
+          transform: `translateY(${heroY}px)`,
+          willChange: "transform, opacity",
         }}
       >
         {/* avatar bubble */}
