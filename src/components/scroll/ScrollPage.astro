@@ -32,12 +32,12 @@ const { initialSection = "section-top" } = Astro.props;
   <ScrollIndicator sectionId="section-about" label="career" client:load />
 </section>
 
-<section id="section-career" data-route="/about/career">
+<section id="section-career" data-route="/career">
   <CareerTimeline />
   <ScrollIndicator sectionId="section-career" label="tech" client:load />
 </section>
 
-<section id="section-tech" data-route="/about/tech">
+<section id="section-tech" data-route="/tech">
   <TechBubbles items={techItems} client:visible />
   <ScrollIndicator sectionId="section-tech" label="works" client:load />
 </section>
@@ -59,8 +59,8 @@ const { initialSection = "section-top" } = Astro.props;
       const routes = {
         "section-top": "/",
         "section-about": "/about",
-        "section-career": "/about/career",
-        "section-tech": "/about/tech",
+        "section-career": "/career",
+        "section-tech": "/tech",
         "section-works": "/works",
         "section-contact": "/contact",
       };

@@ -3,8 +3,8 @@ import { useEffect, useRef } from "react";
 const SECTION_ROUTES = [
   { id: "section-top", route: "/" },
   { id: "section-about", route: "/about" },
-  { id: "section-career", route: "/about/career" },
-  { id: "section-tech", route: "/about/tech" },
+  { id: "section-career", route: "/career" },
+  { id: "section-tech", route: "/tech" },
   { id: "section-works", route: "/works" },
   { id: "section-contact", route: "/contact" },
 ];

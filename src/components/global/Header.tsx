@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 const NAV_ITEMS = [
   { label: "About", href: "/about", sectionId: "section-about" },
+  { label: "Career", href: "/career", sectionId: "section-career" },
+  { label: "Tech", href: "/tech", sectionId: "section-tech" },
   { label: "Works", href: "/works", sectionId: "section-works" },
   { label: "Contact", href: "/contact", sectionId: "section-contact" },
 ];
@@ -86,7 +88,7 @@ export default function Header({ alwaysVisible = false }: Props) {
         {/* avatar on the left */}
         <a
           href="/"
-          className="flex items-center gap-2 mr-auto"
+          className="flex items-center gap-2"
           onClick={(e) => {
             e.preventDefault();
             const el = document.getElementById("section-top");
@@ -100,11 +102,8 @@ export default function Header({ alwaysVisible = false }: Props) {
           <div
             className="w-8 h-8 rounded-full overflow-hidden
                        bg-white/30 border border-white/40
-                       shadow-sm bubble-float"
-            style={{
-              viewTransitionName: "avatar",
-              animationDuration: "5s",
-            }}
+                       shadow-sm"
+            style={{ viewTransitionName: "avatar" }}
           >
             <img
               src="/images/avatar.svg"
@@ -115,7 +114,7 @@ export default function Header({ alwaysVisible = false }: Props) {
         </a>
 
         {/* nav links */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 ml-4">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
