@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
+import ScrollIndicator from "../global/ScrollIndicator";
 
 export default function LandingHero() {
   const progress = useScrollProgress("section-top");
@@ -59,28 +60,7 @@ export default function LandingHero() {
         </div>
       </div>
 
-      {/* scroll indicator */}
-      <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center z-10"
-        style={{ opacity: textOpacity }}
-      >
-        <span className="text-sm text-text-muted font-medium">about</span>
-        <div className="mt-2 bounce-arrow">
-          <svg
-            className="w-5 h-5 mx-auto text-text-muted"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7"
-            />
-          </svg>
-        </div>
-      </div>
+      <ScrollIndicator sectionId="section-top" label="about" />
     </div>
   );
 }

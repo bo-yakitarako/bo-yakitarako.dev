@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import type { WorkItem } from "../../data/works";
 import { navigate } from "astro:transitions/client";
 
@@ -34,7 +34,11 @@ function generatePositions(count: number): BubblePosition[] {
 }
 
 export default function WorksBubbleGrid({ items }: Props) {
-  const positions = useMemo(() => generatePositions(items.length), [items.length]);
+  const [positions, setPositions] = useState<BubblePosition[]>([]);
+
+  useEffect(() => {
+    setPositions(generatePositions(items.length));
+  }, [items.length]);
 
   const handleClick = useCallback(
     async (workId: string, e: React.MouseEvent<HTMLButtonElement>) => {

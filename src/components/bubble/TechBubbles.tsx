@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useState, useEffect } from "react";
 import type { TechItem } from "../../data/tech";
 
 interface Props {
@@ -33,7 +33,11 @@ function generatePositions(count: number): BubblePosition[] {
 }
 
 export default function TechBubbles({ items }: Props) {
-  const positions = useMemo(() => generatePositions(items.length), [items.length]);
+  const [positions, setPositions] = useState<BubblePosition[]>([]);
+
+  useEffect(() => {
+    setPositions(generatePositions(items.length));
+  }, [items.length]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">

@@ -8,7 +8,7 @@ import CareerTimeline from "../about/CareerTimeline.astro";
 import TechBubbles from "../bubble/TechBubbles.tsx";
 import WorksBubbleGrid from "../works/WorksBubbleGrid.tsx";
 import ContactIcons from "../contact/ContactIcons.astro";
-import ScrollIndicator from "../global/ScrollIndicator.astro";
+import ScrollIndicator from "../global/ScrollIndicator.tsx";
 import { techItems } from "../../data/tech";
 import { workItems } from "../../data/works";
 
@@ -29,22 +29,22 @@ const { initialSection = "section-top" } = Astro.props;
 
 <section id="section-about" data-route="/about">
   <AboutIntro />
-  <ScrollIndicator label="career" />
+  <ScrollIndicator sectionId="section-about" label="career" client:load />
 </section>
 
 <section id="section-career" data-route="/about/career">
   <CareerTimeline />
-  <ScrollIndicator label="tech" />
+  <ScrollIndicator sectionId="section-career" label="tech" client:load />
 </section>
 
 <section id="section-tech" data-route="/about/tech">
   <TechBubbles items={techItems} client:visible />
-  <ScrollIndicator label="works" />
+  <ScrollIndicator sectionId="section-tech" label="works" client:load />
 </section>
 
 <section id="section-works" data-route="/works">
   <WorksBubbleGrid items={workItems} client:visible />
-  <ScrollIndicator label="contact" />
+  <ScrollIndicator sectionId="section-works" label="contact" client:load />
 </section>
 
 <section id="section-contact" data-route="/contact">
