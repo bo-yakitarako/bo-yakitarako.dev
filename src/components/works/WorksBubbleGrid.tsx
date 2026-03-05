@@ -14,11 +14,13 @@ interface BubblePosition {
   duration: number;
 }
 
-function generatePositions(count: number): BubblePosition[] {
+function generatePositions(count: number, isMd: boolean): BubblePosition[] {
   const cols = Math.ceil(Math.sqrt(count));
   const rows = Math.ceil(count / cols);
   const cellW = 70 / cols;
   const cellH = 60 / rows;
+  const baseSize = isMd ? 110 : 80;
+  const sizeRange = isMd ? 30 : 20;
 
   return Array.from({ length: count }, (_, i) => {
     const col = i % cols;
@@ -26,7 +28,7 @@ function generatePositions(count: number): BubblePosition[] {
     return {
       x: 15 + col * cellW + cellW / 2 + (Math.random() - 0.5) * cellW * 0.4,
       y: 10 + row * cellH + cellH / 2 + (Math.random() - 0.5) * cellH * 0.3,
-      size: Math.random() * 20 + 80,
+      size: Math.random() * sizeRange + baseSize,
       delay: Math.random() * 2,
       duration: Math.random() * 3 + 4,
     };
@@ -37,7 +39,8 @@ export default function WorksBubbleGrid({ items }: Props) {
   const [positions, setPositions] = useState<BubblePosition[]>([]);
 
   useEffect(() => {
-    setPositions(generatePositions(items.length));
+    const isMd = window.matchMedia("(min-width: 768px)").matches;
+    setPositions(generatePositions(items.length, isMd));
   }, [items.length]);
 
   const handleClick = useCallback(
@@ -52,7 +55,7 @@ export default function WorksBubbleGrid({ items }: Props) {
 
   return (
     <div className="flex flex-col items-center px-4 pb-24">
-      <div className="relative w-full max-w-4xl h-[400px] md:h-[500px]">
+      <div className="relative w-full max-w-4xl md:max-w-6xl h-100 md:h-150">
         {items.map((item, i) => {
           const pos = positions[i];
           if (!pos) return null;
@@ -90,7 +93,7 @@ export default function WorksBubbleGrid({ items }: Props) {
                   className="w-3/5 h-3/5 object-contain rounded-lg"
                 />
               </div>
-              <span className="block mt-2 text-xs text-text-muted text-center">
+              <span className="block mt-2 text-xs md:text-sm text-text-muted text-center">
                 {item.title}
               </span>
             </button>

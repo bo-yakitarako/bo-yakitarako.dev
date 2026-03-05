@@ -30,7 +30,7 @@ const contacts = [
         aria-label={c.label}
       >
         <div
-          class="w-16 h-16 md:w-20 md:h-20 rounded-full
+          class="w-16 h-16 md:w-28 md:h-28 rounded-full
                  bg-white/30 backdrop-blur-sm
                  border border-white/40
                  shadow-[0_4px_16px_rgba(74,158,255,0.1)]
@@ -41,12 +41,12 @@ const contacts = [
           style={`animation-duration: ${4 + i * 0.7}s; animation-delay: ${i * 0.5}s;`}
         >
           <svg
-            class="w-7 h-7 md:w-8 md:h-8 text-text-secondary group-hover:text-accent-blue transition-colors"
+            class="w-7 h-7 md:w-11 md:h-11 text-text-secondary group-hover:text-accent-blue transition-colors"
             viewBox="0 0 24 24"
             set:html={c.icon}
           />
         </div>
-        <span class="text-xs text-text-muted group-hover:text-text-secondary transition-colors">
+        <span class="text-xs md:text-base text-text-muted group-hover:text-text-secondary transition-colors">
           {c.label}
         </span>
       </a>

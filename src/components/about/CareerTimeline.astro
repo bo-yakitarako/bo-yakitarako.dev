@@ -3,7 +3,7 @@ import { careerItems } from "../../data/career";
 ---
 
 <div class="flex flex-col items-center px-4 pb-24">
-  <div class="max-w-2xl mx-auto w-full">
+  <div class="max-w-2xl md:max-w-4xl mx-auto w-full">
 
     <div class="relative w-fit mx-auto md:w-auto md:mx-0">
       <!-- timeline line -->
@@ -14,7 +14,7 @@ import { careerItems } from "../../data/career";
           {item.section && (
             <div class="relative flex items-center mb-6 mt-4 md:justify-center">
               <div class="absolute left-4 md:hidden w-3 h-3 -translate-x-1/2 rounded-full bg-accent-blue/60 border-2 border-white shadow-sm" />
-              <span class="ml-10 md:ml-0 md:bg-bg md:px-4 text-sm font-semibold text-text-primary tracking-wider">
+              <span class="ml-10 md:ml-0 md:bg-bg md:px-4 text-sm md:text-lg font-semibold text-text-primary tracking-wider">
                 {item.section}
               </span>
             </div>
@@ -33,13 +33,13 @@ import { careerItems } from "../../data/career";
                 i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"
               }`}
             >
-              <span class="text-sm text-text-muted font-mono">{item.period}</span>
-              <h3 class="text-xl font-semibold text-text-primary mt-1">
+              <span class="text-sm md:text-base text-text-muted font-mono">{item.period}</span>
+              <h3 class="text-xl md:text-2xl font-semibold text-text-primary mt-1">
                 {item.title}
               </h3>
-              <p class="text-base text-text-secondary">{item.role}</p>
+              <p class="text-base md:text-lg text-text-secondary">{item.role}</p>
               {item.description && (
-                <p class="text-base text-text-muted mt-1">{item.description}</p>
+                <p class="text-base md:text-lg text-text-muted mt-1">{item.description}</p>
               )}
             </div>
           </div>
