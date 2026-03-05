@@ -13,10 +13,18 @@ export default function ScrollRouter() {
   const currentRoute = useRef(
     typeof window !== "undefined" ? window.location.pathname : "/"
   );
+  const ready = useRef(false);
 
   useEffect(() => {
+    // Wait for initial scroll to settle before observing
+    const timer = setTimeout(() => {
+      ready.current = true;
+    }, 300);
+
     const observer = new IntersectionObserver(
       (entries) => {
+        if (!ready.current) return;
+
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -60,6 +68,7 @@ export default function ScrollRouter() {
     window.addEventListener("popstate", handlePopState);
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
       window.removeEventListener("popstate", handlePopState);
     };

@@ -59,21 +59,17 @@ const { initialSection = "section-top" } = Astro.props;
 
 {initialSection !== "section-top" && (
   <script is:inline define:vars={{ initialSection }}>
-    const el = document.getElementById(initialSection);
-    if (el) {
-      el.scrollIntoView();
-      const routes = {
-        "section-top": "/",
-        "section-about": "/about",
-        "section-career": "/career",
-        "section-tech": "/tech",
-        "section-works": "/works",
-        "section-contact": "/contact",
-      };
-      const route = routes[initialSection];
-      if (route) {
-        history.replaceState({ section: initialSection }, "", route);
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
+    }
+    function scrollToSection() {
+      const el = document.getElementById(initialSection);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top + window.innerHeight * 0.25, behavior: "instant" });
       }
     }
+    scrollToSection();
+    requestAnimationFrame(scrollToSection);
   </script>
 )}
