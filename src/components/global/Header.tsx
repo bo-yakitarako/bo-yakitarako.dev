@@ -59,16 +59,22 @@ export default function Header({ alwaysVisible = false }: Props) {
     };
   }, [alwaysVisible]);
 
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (!el) return false;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    // Scroll so sticky title is just pinned below header
+    window.scrollTo({ top: top + window.innerHeight * 0.25, behavior: "smooth" });
+    return true;
+  };
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string,
     href: string
   ) => {
     e.preventDefault();
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else {
+    if (!scrollToSection(sectionId)) {
       window.location.href = href;
     }
   };
@@ -93,7 +99,7 @@ export default function Header({ alwaysVisible = false }: Props) {
             e.preventDefault();
             const el = document.getElementById("section-top");
             if (el) {
-              el.scrollIntoView({ behavior: "smooth" });
+              window.scrollTo({ top: 0, behavior: "smooth" });
             } else {
               window.location.href = "/";
             }

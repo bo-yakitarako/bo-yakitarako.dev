@@ -51,10 +51,7 @@ export default function WorksBubbleGrid({ items }: Props) {
   );
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <h2 className="text-2xl md:text-3xl font-bold text-text-primary text-center mb-8">
-        Works
-      </h2>
+    <div className="flex flex-col items-center px-4 pb-24">
       <div className="relative w-full max-w-4xl h-[400px] md:h-[500px]">
         {items.map((item, i) => {
           const pos = positions[i];

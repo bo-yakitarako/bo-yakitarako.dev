@@ -21,7 +21,7 @@ export default function ScrollIndicator({ sectionId, label }: Props) {
           const vh = window.innerHeight;
           // Show when section top is in the upper half of viewport
           // Hide after scrolling 200px past the section top
-          setVisible(rect.top < vh * 0.5 && rect.top > -200);
+          setVisible(rect.top < vh * 0.5 && rect.top > -500);
         }
         ticking = false;
       });
@@ -34,7 +34,10 @@ export default function ScrollIndicator({ sectionId, label }: Props) {
 
   const handleClick = () => {
     const target = document.getElementById(`section-${label}`);
-    target?.scrollIntoView({ behavior: "smooth" });
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top + window.innerHeight * 0.25, behavior: "smooth" });
+    }
   };
 
   return (
