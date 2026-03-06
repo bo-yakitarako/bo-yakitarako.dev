@@ -57,7 +57,7 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
                        bg-white/30 backdrop-blur-sm border-2 border-white/40
                        shadow-[0_8px_32px_rgba(74,158,255,0.1)]
                        flex items-center justify-center
-                       bubble-float mb-4"
+                       bubble-float mb-2"
             style={{ animationDuration: "5.5s" }}
           >
             <img

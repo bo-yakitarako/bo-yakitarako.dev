@@ -1,11 +1,69 @@
 ---
+const { Content } = await import("../../content/about.md");
 ---
 
-<div class="flex flex-col items-center px-4 pb-24">
-  <div class="max-w-2xl mx-auto text-center">
-    <!-- TODO: にじえもが自己紹介文を書く -->
-    <p class="text-text-secondary leading-relaxed md:text-xl">
-      Web が好きな開発者です。フロントエンドを中心に、ユーザー体験を大切にしたものづくりをしています。
-    </p>
-  </div>
+<div class="about-prose pb-24">
+  <Content />
 </div>
+
+<style>
+  .about-prose :global(h2) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-prose :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-prose :global(p) {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .about-prose :global(ul),
+  .about-prose :global(ol) {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .about-prose :global(li) {
+    margin-bottom: 0.25rem;
+  }
+
+  .about-prose :global(a) {
+    color: var(--color-accent-blue);
+    text-decoration: underline;
+  }
+
+  .about-prose :global(strong) {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    .about-prose :global(h2) {
+      font-size: 1.875rem;
+    }
+
+    .about-prose :global(h3) {
+      font-size: 1.5rem;
+    }
+
+    .about-prose :global(p),
+    .about-prose :global(ul),
+    .about-prose :global(ol) {
+      font-size: 1.25rem;
+    }
+  }
+</style>
