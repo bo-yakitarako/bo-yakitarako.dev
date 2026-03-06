@@ -26,7 +26,7 @@ export default function LandingHero() {
       >
         {/* avatar bubble */}
         <div
-          className="w-36 h-36 md:w-64 md:h-64 rounded-full
+          className="w-44 h-44 md:w-64 md:h-64 rounded-full shrink-0 aspect-square
                      bg-white/30 backdrop-blur-sm border-2 border-white/40
                      shadow-[0_8px_32px_rgba(74,158,255,0.15)]
                      flex items-center justify-center
@@ -45,10 +45,10 @@ export default function LandingHero() {
 
         {/* title text */}
         <div
-          className="mt-6 text-center"
+          className="mt-4 text-center"
           style={{ opacity: textOpacity }}
         >
-          <h1 className="text-2xl md:text-5xl font-bold text-text-primary tracking-tight">
+          <h1 className="text-3xl md:text-5xl text-text-primary tracking-tight">
             bo-yakitarako.dev
           </h1>
         </div>
