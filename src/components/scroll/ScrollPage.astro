@@ -32,7 +32,7 @@ const { initialSection = "section-top" } = Astro.props;
   <section id="section-about" data-route="/about" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-about" title="About" icon="/images/avatar.svg" client:load />
     <AboutIntro />
-    <ScrollIndicator sectionId="section-about" label="career" client:load />
+    <ScrollIndicator sectionId="section-about" label="career" hideOffset={1300} client:load />
   </section>
 
   <section id="section-career" data-route="/career" class="min-h-[130vh] pt-[25vh] scroll-mt-14">

@@ -29,16 +29,28 @@ const { Content } = await import("../../content/about.md");
     margin-bottom: 1rem;
   }
 
-  .about-prose :global(ul),
+  .about-prose :global(ul) {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
   .about-prose :global(ol) {
     color: var(--color-text-secondary);
     line-height: 1.75;
     margin-bottom: 1rem;
     padding-left: 1.5rem;
+    list-style-type: decimal;
   }
 
   .about-prose :global(li) {
     margin-bottom: 0.25rem;
+  }
+
+  .about-prose :global(li)::marker {
+    color: var(--color-text-secondary);
   }
 
   .about-prose :global(a) {

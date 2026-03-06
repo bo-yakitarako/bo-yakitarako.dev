@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 interface Props {
   sectionId: string;
   label: string;
+  /** セクション上端がビューポート上に何pxスクロールされるまで表示するか（デフォルト500） */
+  hideOffset?: number;
 }
 
-export default function ScrollIndicator({ sectionId, label }: Props) {
+export default function ScrollIndicator({ sectionId, label, hideOffset = 500 }: Props) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export default function ScrollIndicator({ sectionId, label }: Props) {
           const vh = window.innerHeight;
           // Show when section top is in the upper half of viewport
           // Hide after scrolling 200px past the section top
-          setVisible(rect.top < vh * 0.5 && rect.top > -500);
+          setVisible(rect.top < vh * 0.5 && rect.top > -hideOffset);
         }
         ticking = false;
       });
