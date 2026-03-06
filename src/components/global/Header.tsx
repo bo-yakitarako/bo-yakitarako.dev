@@ -90,7 +90,7 @@ export default function Header({ alwaysVisible = false }: Props) {
         bg-white/60 backdrop-blur-md border-b border-gray-200/30`}
       style={{ viewTransitionName: "header" }}
     >
-      <nav className="max-w-5xl mx-auto px-4 h-14 flex items-center">
+      <nav className="mx-auto px-4 h-14 flex items-center" style={{ maxWidth: "54rem" }}>
         {/* avatar on the left */}
         <a
           href="/"
@@ -120,7 +120,7 @@ export default function Header({ alwaysVisible = false }: Props) {
         </a>
 
         {/* nav links */}
-        <div className="flex items-center gap-4 ml-4">
+        <div className="flex items-center gap-4 ml-auto">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}

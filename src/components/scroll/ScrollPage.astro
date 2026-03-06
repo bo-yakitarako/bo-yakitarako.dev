@@ -28,34 +28,36 @@ const { initialSection = "section-top" } = Astro.props;
   <LandingHero client:load />
 </section>
 
-<section id="section-about" data-route="/about" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-  <StickyTitle sectionId="section-about" title="About" icon="/images/avatar.svg" client:load />
-  <AboutIntro />
-  <ScrollIndicator sectionId="section-about" label="career" client:load />
-</section>
+<div class="mx-auto px-4" style="max-width: 54rem">
+  <section id="section-about" data-route="/about" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
+    <StickyTitle sectionId="section-about" title="About" icon="/images/avatar.svg" client:load />
+    <AboutIntro />
+    <ScrollIndicator sectionId="section-about" label="career" client:load />
+  </section>
 
-<section id="section-career" data-route="/career" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-  <StickyTitle sectionId="section-career" title="Career" client:load />
-  <CareerTimeline />
-  <ScrollIndicator sectionId="section-career" label="tech" client:load />
-</section>
+  <section id="section-career" data-route="/career" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
+    <StickyTitle sectionId="section-career" title="Career" client:load />
+    <CareerTimeline />
+    <ScrollIndicator sectionId="section-career" label="tech" client:load />
+  </section>
 
-<section id="section-tech" data-route="/tech" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-  <StickyTitle sectionId="section-tech" title="Tech Stack" client:load />
-  <TechBubbles items={techItems} client:visible />
-  <ScrollIndicator sectionId="section-tech" label="works" client:load />
-</section>
+  <section id="section-tech" data-route="/tech" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
+    <StickyTitle sectionId="section-tech" title="Tech Stack" client:load />
+    <TechBubbles items={techItems} client:visible />
+    <ScrollIndicator sectionId="section-tech" label="works" client:load />
+  </section>
 
-<section id="section-works" data-route="/works" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-  <StickyTitle sectionId="section-works" title="Works" client:load />
-  <WorksBubbleGrid items={workItems} client:visible />
-  <ScrollIndicator sectionId="section-works" label="contact" client:load />
-</section>
+  <section id="section-works" data-route="/works" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
+    <StickyTitle sectionId="section-works" title="Works" client:load />
+    <WorksBubbleGrid items={workItems} client:visible />
+    <ScrollIndicator sectionId="section-works" label="contact" client:load />
+  </section>
 
-<section id="section-contact" data-route="/contact" class="min-h-screen flex flex-col items-center justify-center scroll-mt-14">
-  <h2 class="text-2xl md:text-3xl font-bold text-text-primary text-center pb-8">Contact</h2>
-  <ContactIcons />
-</section>
+  <section id="section-contact" data-route="/contact" class="min-h-screen flex flex-col items-center justify-center scroll-mt-14">
+    <h2 class="text-2xl md:text-3xl font-bold text-text-primary text-center pb-8">Contact</h2>
+    <ContactIcons />
+  </section>
+</div>
 
 {initialSection !== "section-top" && (
   <script is:inline define:vars={{ initialSection }}>
