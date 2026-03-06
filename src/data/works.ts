@@ -3,7 +3,7 @@ export interface WorkItem {
   title: string;
   description: string;
   icon: string;
-  platforms: string[];
+  platforms: ('web' | 'ios' | 'android' | 'desktop' | 'bot')[];
   url?: string;
   github?: string;
   color: string;
@@ -18,6 +18,8 @@ export const workItems: WorkItem[] = [
     icon: "/images/works/sample1.svg",
     platforms: ["web"],
     color: "#4a9eff",
+    github: "https://github.com/bo-yakitarako/ahoshine",
+    url: "https://ahoshine.bo-yakitarako.dev",
   },
   {
     id: "sample-app-2",
