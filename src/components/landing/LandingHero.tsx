@@ -1,19 +1,26 @@
+import { useEffect, useState } from "react";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 import ScrollIndicator from "../global/ScrollIndicator";
 
 export default function LandingHero() {
   const progress = useScrollProgress("section-top");
+  const [entered, setEntered] = useState(false);
   const textOpacity = Math.max(0, 1 - progress * 6);
   const heroOpacity = Math.max(0, 1 - progress * 5);
   const heroY = -progress * 120;
 
+  useEffect(() => {
+    const timer = setTimeout(() => setEntered(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative flex items-center justify-center h-dvh">
       <div
-        className="flex flex-col items-center z-10"
+        className="flex flex-col items-center z-10 transition-all duration-1000 ease-out"
         style={{
-          opacity: heroOpacity,
-          transform: `translateY(${heroY - 24}px)`,
+          opacity: entered ? heroOpacity : 0,
+          transform: `translateY(${entered ? heroY - 24 : heroY - 4}px)`,
           willChange: "transform, opacity",
         }}
       >
