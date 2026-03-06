@@ -54,7 +54,7 @@ export default function LandingHero() {
         </div>
       </div>
 
-      <ScrollIndicator sectionId="section-top" label="about" />
+      <ScrollIndicator sectionId="section-top" label="about" hideOffset={[200, 100]} />
     </div>
   );
 }
