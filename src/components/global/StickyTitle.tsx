@@ -20,7 +20,7 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
         if (section) {
           const rect = section.getBoundingClientRect();
           const vh = window.innerHeight;
-          const stickyTop = vh * 0.14;
+          const stickyTop = vh * 0.10;
           // Distance from section bottom to the sticky position
           const distanceToEnd = rect.bottom - stickyTop;
           const fadeZone = 400;
@@ -49,7 +49,7 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
   return (
     <div className="sticky top-0 z-10">
       <div className="absolute top-0 left-0 right-0 bottom-4 bg-bg" />
-      <div className="h-[14vh]" />
+      <div className="h-[10vh]" />
       <div className="relative flex flex-col items-center pb-4" style={style}>
         {icon && (
           <div
