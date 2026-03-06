@@ -32,25 +32,25 @@ const { initialSection = "section-top" } = Astro.props;
   <section id="section-about" data-route="/about" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-about" title="About" icon="/images/avatar.webp" client:load />
     <AboutIntro />
-    <ScrollIndicator sectionId="section-about" label="career" hideOffset={[1300, 1800]} client:load />
+    <ScrollIndicator sectionId="section-about" label="Career" hideOffset={[1300, 1800]} client:load />
   </section>
 
   <section id="section-career" data-route="/career" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-career" title="Career" client:load />
     <CareerTimeline />
-    <ScrollIndicator sectionId="section-career" label="tech" client:load />
+    <ScrollIndicator sectionId="section-career" label="Tech" hideOffset={[850, 850]} client:load />
   </section>
 
   <section id="section-tech" data-route="/tech" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-    <StickyTitle sectionId="section-tech" title="Tech Stack" client:load />
+    <StickyTitle sectionId="section-tech" title="Tech" client:load />
     <TechBubbles items={techItems} client:visible />
-    <ScrollIndicator sectionId="section-tech" label="works" client:load />
+    <ScrollIndicator sectionId="section-tech" label="Works" client:load />
   </section>
 
   <section id="section-works" data-route="/works" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-works" title="Works" client:load />
     <WorksBubbleGrid items={workItems} client:visible />
-    <ScrollIndicator sectionId="section-works" label="contact" client:load />
+    <ScrollIndicator sectionId="section-works" label="Contact" client:load />
   </section>
 
   <section id="section-contact" data-route="/contact" class="min-h-screen flex flex-col items-center justify-center scroll-mt-14 pt-14">
