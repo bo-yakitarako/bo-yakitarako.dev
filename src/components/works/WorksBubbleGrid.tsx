@@ -18,7 +18,7 @@ export default function WorksBubbleGrid({ items }: Props) {
   );
 
   return (
-    <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 pb-24">
+    <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 pt-10 pb-24">
       {items.map((item, i) => (
         <button
           key={item.id}
