@@ -6,7 +6,7 @@ interface Props {
 
 export default function TechBubbles({ items }: Props) {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 pb-24">
+    <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 pt-10 pb-24">
       {items.map((item, i) => (
         <div
           key={item.name}
@@ -18,7 +18,7 @@ export default function TechBubbles({ items }: Props) {
           title={item.name}
         >
           <div
-            className="w-20 h-20 md:w-28 md:h-28 rounded-full
+            className="group relative w-20 h-20 md:w-28 md:h-28 rounded-full
                        bg-white/30 backdrop-blur-sm
                        border border-white/40
                        shadow-[0_4px_16px_rgba(74,158,255,0.1)]
@@ -31,6 +31,18 @@ export default function TechBubbles({ items }: Props) {
               alt={item.name}
               className="w-1/2 h-1/2 object-contain"
             />
+            {item.description && (
+              <div
+                className="hidden md:block absolute -top-10 left-1/2 -translate-x-1/2
+                           px-3 py-1.5 rounded-lg bg-white/90 backdrop-blur-sm
+                           border border-white/60 shadow-md
+                           text-xs text-text-secondary whitespace-nowrap
+                           opacity-0 group-hover:opacity-100
+                           transition-opacity duration-200 pointer-events-none"
+              >
+                {item.description}
+              </div>
+            )}
           </div>
           <span className="text-xs md:text-sm text-text-muted text-center">
             {item.name}
