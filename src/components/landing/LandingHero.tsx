@@ -37,7 +37,7 @@ export default function LandingHero() {
           }}
         >
           <img
-            src="/images/avatar.svg"
+            src="/images/avatar.webp"
             alt="bo-yakitarako"
             className="w-3/4 h-3/4 rounded-full object-cover"
           />

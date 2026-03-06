@@ -112,7 +112,7 @@ export default function Header({ alwaysVisible = false }: Props) {
             style={{ viewTransitionName: "avatar" }}
           >
             <img
-              src="/images/avatar.svg"
+              src="/images/avatar.webp"
               alt="bo-yakitarako"
               className="w-full h-full object-cover"
             />
