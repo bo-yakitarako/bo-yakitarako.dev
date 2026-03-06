@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const NAV_ITEMS = [
   { label: "About", href: "/about", sectionId: "section-about" },
   { label: "Career", href: "/career", sectionId: "section-career" },
-  { label: "Tech", href: "/tech", sectionId: "section-tech" },
+  { label: "Tech Stack", href: "/tech", sectionId: "section-tech" },
   { label: "Works", href: "/works", sectionId: "section-works" },
   { label: "Contact", href: "/contact", sectionId: "section-contact" },
 ];

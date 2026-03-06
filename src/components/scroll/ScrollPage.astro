@@ -38,11 +38,11 @@ const { initialSection = "section-top" } = Astro.props;
   <section id="section-career" data-route="/career" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-career" title="Career" client:load />
     <CareerTimeline />
-    <ScrollIndicator sectionId="section-career" label="Tech" hideOffset={[850, 850]} client:load />
+    <ScrollIndicator sectionId="section-career" label="Tech Stack" hideOffset={[850, 850]} client:load />
   </section>
 
   <section id="section-tech" data-route="/tech" class="min-h-[130vh] pt-[25vh] scroll-mt-14">
-    <StickyTitle sectionId="section-tech" title="Tech" client:load />
+    <StickyTitle sectionId="section-tech" title="Tech Stack" client:load />
     <TechBubbles items={techItems} client:visible />
     <ScrollIndicator sectionId="section-tech" label="Works" client:load />
   </section>
