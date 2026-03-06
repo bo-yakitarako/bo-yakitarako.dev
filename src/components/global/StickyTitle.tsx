@@ -48,7 +48,7 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
 
   return (
     <div className="sticky top-0 z-10">
-      <div className="absolute top-0 left-0 right-0 bottom-4 bg-bg" />
+      <div className="absolute top-0 left-0 right-0 bottom-8 bg-bg" />
       <div className="h-[10vh]" />
       <div className="relative flex flex-col items-center pb-4" style={style}>
         {icon && (
@@ -71,7 +71,7 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
           {title}
         </h2>
       </div>
-      <div className="relative h-4 bg-linear-to-b from-bg to-transparent" style={{ opacity: style.opacity }} />
+      <div className="relative h-8 bg-linear-to-b from-bg to-transparent" style={{ opacity: style.opacity }} />
     </div>
   );
 }
