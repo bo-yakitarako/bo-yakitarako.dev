@@ -48,7 +48,7 @@ const { initialSection = "section-top" } = Astro.props;
   </section>
 
   <section id="section-works" data-route="/works" class="min-h-[120vh] pt-[25vh] scroll-mt-14">
-    <StickyTitle sectionId="section-works" title="Works" subtitle="各アイコンをクリックすると詳細を表示します" client:load />
+    <StickyTitle sectionId="section-works" title="Works" subtitle="趣味で制作してきたものです。クリックで詳細を表示します" client:load />
     <WorksBubbleGrid sections={workSections} client:visible />
     <ScrollIndicator sectionId="section-works" label="Contact" hideOffset={[400, 700]} client:load />
   </section>
