@@ -13,7 +13,6 @@ export interface WorkSection {
   items: WorkItem[];
 }
 
-// TODO: にじえもが実データを入れる
 export const workSections: WorkSection[] = [
   {
     title: "Products",
