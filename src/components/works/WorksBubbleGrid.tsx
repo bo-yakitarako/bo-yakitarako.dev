@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import type { WorkItem } from "../../data/works";
+import type { WorkItem, WorkSection } from "../../data/works";
 
 interface Props {
-  items: WorkItem[];
+  sections: WorkSection[];
 }
 
 const platformLabels: Record<string, string> = {
@@ -11,6 +11,7 @@ const platformLabels: Record<string, string> = {
   android: "📱 Android",
   desktop: "🖥 Desktop",
   bot: "🤖 Bot",
+  unavailable: "公開終了",
 };
 
 function WorkModal({
@@ -66,15 +67,12 @@ function WorkModal({
                        bg-white/30 backdrop-blur-sm border border-white/40
                        shadow-[0_8px_32px_rgba(74,158,255,0.1)]
                        flex items-center justify-center bubble-float"
-            style={{
-              animationDuration: "5s",
-              boxShadow: `0 8px 32px ${work.color}15`,
-            }}
+            style={{ animationDuration: "5s" }}
           >
             <img
               src={work.icon}
               alt={work.title}
-              className="w-3/5 h-3/5 object-contain"
+              className="w-3/5 h-3/5 object-contain rounded-lg"
             />
           </div>
 
@@ -88,15 +86,18 @@ function WorkModal({
               {work.platforms.map((p) => (
                 <span
                   key={p}
-                  className="text-xs px-3 py-1 rounded-full bg-white/40
-                             text-text-secondary border border-white/30"
+                  className={`text-xs px-3 py-1 rounded-full border ${
+                    p === "unavailable"
+                      ? "bg-red-100/60 text-red-400 border-red-200/40"
+                      : "bg-white/40 text-text-secondary border-white/30"
+                  }`}
                 >
                   {platformLabels[p] ?? p}
                 </span>
               ))}
             </div>
 
-            <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6">
+            <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6 text-left whitespace-pre-line">
               {work.description}
             </p>
 
@@ -141,47 +142,54 @@ function WorkModal({
   );
 }
 
-export default function WorksBubbleGrid({ items }: Props) {
+export default function WorksBubbleGrid({ sections }: Props) {
   const [selected, setSelected] = useState<WorkItem | null>(null);
 
   return (
     <>
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 pb-24">
-        {items.map((item, i) => (
-          <button
-            key={item.id}
-            className="flex flex-col items-center gap-2 bubble-float-alt cursor-pointer"
-            style={{
-              animationDelay: `${(i % 5) * 0.4}s`,
-              animationDuration: `${9 + (i % 4) * 1.5}s`,
-            }}
-            onClick={() => setSelected(item)}
-            aria-label={`${item.title} を見る`}
+      {sections.map((section) => (
+        <div key={section.title} className="mb-12 last:mb-0">
+          <h3 className="text-lg md:text-xl font-semibold text-text-secondary mb-6">
+            {section.title}
+          </h3>
+          <div className="grid grid-cols-[repeat(3,5rem)] md:grid-cols-[repeat(5,7rem)]
+                          justify-between gap-y-8"
           >
-            <div
-              className="w-20 h-20 md:w-28 md:h-28 rounded-full
-                         bg-white/30 backdrop-blur-sm
-                         border border-white/40
-                         shadow-[0_4px_20px_rgba(74,158,255,0.12)]
-                         flex items-center justify-center
-                         hover:bg-white/50 hover:scale-110
-                         transition-all duration-300 overflow-hidden"
-              style={{
-                boxShadow: `0 4px 20px ${item.color}20`,
-              }}
-            >
-              <img
-                src={item.icon}
-                alt={item.title}
-                className="w-3/5 h-3/5 object-contain rounded-lg"
-              />
-            </div>
-            <span className="text-xs md:text-sm text-text-muted text-center">
-              {item.title}
-            </span>
-          </button>
-        ))}
-      </div>
+            {section.items.map((item, i) => (
+              <button
+                key={item.id}
+                className="w-20 md:w-28 flex flex-col items-center gap-2 bubble-float-alt cursor-pointer"
+                style={{
+                  animationDelay: `${(i % 5) * 0.4}s`,
+                  animationDuration: `${9 + (i % 4) * 1.5}s`,
+                }}
+                onClick={() => setSelected(item)}
+                aria-label={`${item.title} を見る`}
+              >
+                <div
+                  className="w-20 h-20 md:w-28 md:h-28 rounded-full
+                             bg-white/30 backdrop-blur-sm
+                             border border-white/40
+                             shadow-[0_4px_20px_rgba(74,158,255,0.12)]
+                             flex items-center justify-center
+                             hover:bg-white/50 hover:scale-110
+                             transition-all duration-300 overflow-hidden"
+                >
+                  <img
+                    src={item.icon}
+                    alt={item.title}
+                    className="w-3/5 h-3/5 object-contain rounded-lg"
+                  />
+                </div>
+                <span className="text-xs md:text-sm text-text-muted text-center">
+                  {item.title}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+      <div className="pb-24" />
 
       {selected && (
         <WorkModal work={selected} onClose={() => setSelected(null)} />

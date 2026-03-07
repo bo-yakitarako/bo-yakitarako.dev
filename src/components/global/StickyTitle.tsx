@@ -4,9 +4,10 @@ interface Props {
   sectionId: string;
   title: string;
   icon?: string;
+  subtitle?: string;
 }
 
-export default function StickyTitle({ sectionId, title, icon }: Props) {
+export default function StickyTitle({ sectionId, title, icon, subtitle }: Props) {
   const [style, setStyle] = useState({ opacity: 1, transform: "none" });
 
   useEffect(() => {
@@ -70,6 +71,14 @@ export default function StickyTitle({ sectionId, title, icon }: Props) {
         <h2 className="text-2xl md:text-3xl font-bold text-text-primary text-center">
           {title}
         </h2>
+        {subtitle && (
+          <>
+            <p className="hidden md:block text-sm text-text-muted mt-2">{subtitle}</p>
+            <p className="block md:hidden text-xs text-text-muted mt-2">
+              {subtitle.replace("クリック", "タップ")}
+            </p>
+          </>
+        )}
       </div>
       <div className="relative h-8 bg-linear-to-b from-bg to-transparent" style={{ opacity: style.opacity }} />
     </div>
