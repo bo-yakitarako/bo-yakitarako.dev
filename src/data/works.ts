@@ -28,7 +28,7 @@ export const workSections: WorkSection[] = [
       {
         id: "sparebeat-grade-certification",
         title: "Sparebeat 段位認定",
-        description: "ブラウザ音楽ゲーム: Sparebeatの段位認定システムです。\n当時はSparebeatからスコアデータを取得するAPIが公開されてなかったため、リザルト画像のスクリーンショットを提出してもらい、その画像をOCRで読み取りスコアを読み取ることで判定を行いました。",
+        description: "ブラウザ音楽ゲーム: Sparebeatの段位認定システムです。\n当時はSparebeatからスコアデータを取得するAPIが公開されてなかったため、リザルト画像のスクリーンショットを提出してもらい、その画像をOCRで読み取りスコアを読み取ることで判定を行いました。\nユーザー体験向上のためSparebeatのリザルト画像を画面内で自動的に読み取ってリザルト画像のみをスクショするDesktopアプリを別途用意していました。",
         icon: "/images/works/sgc.png",
         platforms: ["web", "unavailable"],
 
