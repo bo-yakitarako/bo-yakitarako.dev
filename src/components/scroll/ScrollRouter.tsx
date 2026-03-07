@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
 const SECTION_ROUTES = [
-  { id: "section-top", route: "/" },
-  { id: "section-about", route: "/about" },
-  { id: "section-career", route: "/career" },
-  { id: "section-tech", route: "/tech" },
-  { id: "section-works", route: "/works" },
-  { id: "section-contact", route: "/contact" },
+  { id: "section-top", route: "/", title: "bo-yakitarako.dev" },
+  { id: "section-about", route: "/about", title: "About | bo-yakitarako.dev" },
+  { id: "section-career", route: "/career", title: "Career | bo-yakitarako.dev" },
+  { id: "section-tech", route: "/tech", title: "Tech Stack | bo-yakitarako.dev" },
+  { id: "section-works", route: "/works", title: "Works | bo-yakitarako.dev" },
+  { id: "section-contact", route: "/contact", title: "Contact | bo-yakitarako.dev" },
 ];
 
 export default function ScrollRouter() {
@@ -34,6 +34,7 @@ export default function ScrollRouter() {
           const config = SECTION_ROUTES.find((s) => s.id === sectionId);
           if (config && config.route !== currentRoute.current) {
             currentRoute.current = config.route;
+            document.title = config.title;
             history.pushState({ section: sectionId }, "", config.route);
             window.dispatchEvent(
               new CustomEvent("route-change", {
@@ -58,9 +59,9 @@ export default function ScrollRouter() {
       if (event.state?.section) {
         const el = document.getElementById(event.state.section);
         if (el) {
-          currentRoute.current =
-            SECTION_ROUTES.find((s) => s.id === event.state.section)?.route ??
-            "/";
+          const config = SECTION_ROUTES.find((s) => s.id === event.state.section);
+          currentRoute.current = config?.route ?? "/";
+          document.title = config?.title ?? "bo-yakitarako.dev";
           el.scrollIntoView({ behavior: "smooth" });
         }
       }
