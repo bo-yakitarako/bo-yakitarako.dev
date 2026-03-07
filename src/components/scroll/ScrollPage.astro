@@ -32,25 +32,25 @@ const { initialSection = "section-top" } = Astro.props;
   <section id="section-about" data-route="/about" class="min-h-[120vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-about" title="About" icon="/images/avatar.webp" client:load />
     <AboutIntro />
-    <ScrollIndicator sectionId="section-about" label="Career" hideOffset={[1300, 1800]} client:load />
+    <ScrollIndicator sectionId="section-about" label="Career" targetId="section-career" hideOffset={[1300, 1800]} client:load />
   </section>
 
   <section id="section-career" data-route="/career" class="min-h-[120vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-career" title="Career" client:load />
     <CareerTimeline />
-    <ScrollIndicator sectionId="section-career" label="Tech Stack" hideOffset={[850, 850]} client:load />
+    <ScrollIndicator sectionId="section-career" label="Tech Stack" targetId="section-tech" hideOffset={[850, 850]} client:load />
   </section>
 
   <section id="section-tech" data-route="/tech" class="min-h-[120vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-tech" title="Tech Stack" client:load />
     <TechBubbles items={techItems} client:visible />
-    <ScrollIndicator sectionId="section-tech" label="Works" hideOffset={[350, 600]} client:load />
+    <ScrollIndicator sectionId="section-tech" label="Works" targetId="section-works" hideOffset={[350, 600]} client:load />
   </section>
 
   <section id="section-works" data-route="/works" class="min-h-[120vh] pt-[25vh] scroll-mt-14">
     <StickyTitle sectionId="section-works" title="Works" subtitle="趣味で制作してきたものです。クリックで詳細を表示します" client:load />
     <WorksBubbleGrid sections={workSections} client:visible />
-    <ScrollIndicator sectionId="section-works" label="Contact" hideOffset={[400, 700]} client:load />
+    <ScrollIndicator sectionId="section-works" label="Contact" targetId="section-contact" hideOffset={[400, 700]} client:load />
   </section>
 
   <section id="section-contact" data-route="/contact" class="min-h-screen flex flex-col items-center justify-center scroll-mt-14 pt-14">

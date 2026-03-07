@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 interface Props {
   sectionId: string;
   label: string;
+  /** スクロール先のセクションID（省略時はlabelから自動生成） */
+  targetId?: string;
   /** セクション上端がビューポート上に何pxスクロールされるまで表示するか [PC, スマホ]（デフォルト[500, 500]） */
   hideOffset?: [number, number];
 }
 
-export default function ScrollIndicator({ sectionId, label, hideOffset = [500, 500] }: Props) {
+export default function ScrollIndicator({ sectionId, label, targetId, hideOffset = [500, 500] }: Props) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function ScrollIndicator({ sectionId, label, hideOffset = [500, 5
   }, [sectionId]);
 
   const handleClick = () => {
-    const target = document.getElementById(`section-${label}`);
+    const target = document.getElementById(targetId ?? `section-${label}`);
     if (target) {
       const top = target.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: top + window.innerHeight * 0.25, behavior: "smooth" });
