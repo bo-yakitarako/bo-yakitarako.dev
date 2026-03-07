@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BubbleCanvas from "../components/bubble/BubbleCanvas.tsx";
+---
+
+<BaseLayout title="404 | bo-yakitarako.dev">
+  <BubbleCanvas client:load />
+  <div class="min-h-dvh flex flex-col items-center justify-center px-6">
+    <div class="text-center">
+      <h1 class="text-4xl text-text-primary mb-4">404 Not Found</h1>
+      <p class="text-lg md:text-xl text-text-secondary mb-8">
+        ページが見つかりませんでした
+      </p>
+      <a href="/" class="text-text-primary underline">
+        トップページへ戻る
+      </a>
+    </div>
+  </div>
+</BaseLayout>
