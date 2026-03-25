@@ -92,7 +92,7 @@ export const workSections: WorkSection[] = [
         icon: "/images/works/dakoku.png",
         platforms: ["desktop"],
         github: "https://github.com/bo-yakitarako/dakoku",
-        url: "https://github.com/bo-yakitarako/dakoku/releases/tag/windows",
+        url: "https://github.com/bo-yakitarako/dakoku/releases/tag/windows-3.0.0",
       },
       {
         id: "shadow-corridor-mapping",
