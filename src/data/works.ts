@@ -162,6 +162,15 @@ export const workSections: WorkSection[] = [
         github: "https://github.com/bo-yakitarako/wordwolf",
         url: "https://discord.com/oauth2/authorize?client_id=1437743521275580506&permissions=292776976&integration_type=0&scope=bot",
       },
+      {
+        id: "marubatsu",
+        title: "まるばつげぇむ",
+        description: "みなさんご存じのクソゲーことマルバツゲームを遊べるbotです。\n友人がTypeScriptでbot作りたいということだったのでそのノリでわたくしも作りました。\nあえてAI使用を縛って実装してみたのですが、ただただめんどいだけだったのでこれが最後の非AI開発になるでしょう。",
+        icon: "/images/works/discord/marubatsu.png",
+        platforms: ["bot"],
+        github: "https://github.com/bo-yakitarako/tic-tac-toe",
+        url: "https://discord.com/oauth2/authorize?client_id=1487440079260745729&permissions=83968&integration_type=0&scope=bot",
+      },
     ],
   },
 ];
