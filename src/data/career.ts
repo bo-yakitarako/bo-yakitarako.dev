@@ -23,7 +23,7 @@ export const careerItems: CareerItem[] = [
     type: "education",
   },
   {
-    section: "社員時代",
+    section: "契約社員時代",
     period: "2020/05 - 2023/02",
     title: "株式会社SocialDog",
     role: "React/PHPエンジニア",
@@ -61,10 +61,18 @@ export const careerItems: CareerItem[] = [
     type: "work",
   },
   {
-    period: "2026/02 - 現在",
+    period: "2026/02 - 2026/03",
     title: "株式会社Ceeglass",
     role: "複数のアプリの開発全般",
     description: "Palettからの紹介",
     type: "work",
+  },
+  {
+    section: "正社員時代",
+    period: "2026/04 - 現在",
+    title: "株式会社大雄",
+    role: "フロントエンドエンジニア",
+    description: "現在は大雄からSESで派遣された先で主に働いています",
+    type: "work"
   },
 ];
