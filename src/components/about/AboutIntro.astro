@@ -82,14 +82,24 @@ const { Content } = await import("../../content/about.md");
 
 <script>
   const el = document.querySelector('.dynamic-age');
+  const today = new Date();
   if (el) {
     const birth = new Date(1997, 6, 27);
-    const today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
       age--;
     }
     el.textContent = String(age);
+  }
+  const careerEl = document.querySelector('.dynamic-career');
+  if (careerEl) {
+    const careerStart = new Date(2020, 5, 8);
+    let careerYears = today.getFullYear() - careerStart.getFullYear() + 1;
+    const monthDiff = today.getMonth() - careerStart.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < careerStart.getDate())) {
+      careerYears--;
+    }
+    careerEl.textContent = String(careerYears);
   }
 </script>

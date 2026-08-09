@@ -69,10 +69,17 @@ export const careerItems: CareerItem[] = [
   },
   {
     section: "正社員時代",
-    period: "2026/04 - 現在",
+    period: "2026/04 - 2026/07",
     title: "株式会社大雄",
     role: "フロントエンドエンジニア",
-    description: "現在は大雄からSESで派遣された先で主に働いています",
+    description: "SES派遣と直請け案件の全部を1人で",
     type: "work"
+  },
+  {
+    period: "2026/08 - 現在",
+    title: "株式会社日本トレカセンター",
+    role: "Webフロントエンドエンジニア",
+    description: "Webフロント全般の整備",
+    type: "work",
   },
 ];
