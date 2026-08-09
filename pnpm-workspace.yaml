@@ -2,3 +2,7 @@ allowBuilds:
   esbuild: false
   sharp: false
   workerd: false
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - workerd
