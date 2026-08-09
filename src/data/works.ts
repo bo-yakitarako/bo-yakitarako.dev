@@ -3,7 +3,7 @@ export interface WorkItem {
   title: string;
   description: string;
   icon: string;
-  platforms: ('web' | 'ios' | 'android' | 'desktop' | 'bot' | 'unavailable')[];
+  platforms: ('web' | 'ios' | 'android' | 'desktop' | 'bot' | 'framework' | 'unavailable')[];
   url?: string;
   github?: string;
 }
@@ -104,6 +104,18 @@ export const workSections: WorkSection[] = [
         url: "https://scm.bo-yakitarako.dev",
       },
     ],
+  },
+  {
+    title: "Frameworks",
+    items: [{
+      id: "disbord",
+      title: "disbord",
+      description: "自作Discord Botフレームワークです。\nDiscord Botを色々作ってきて、全てで同じような構成のコードやディレクトリ構造をコピペしていたので、その共通部分をまとめてフレームワーク化しました。\n素のdiscord.jsで作るよりも簡易的に作ることができます",
+      icon: "/images/avatar.webp",
+      platforms: ["framework"],
+      github: "https://github.com/bo-yakitarako/disbord",
+      url: "https://www.npmjs.com/package/disbord",
+    }],
   },
   {
     title: "Disord Bots",

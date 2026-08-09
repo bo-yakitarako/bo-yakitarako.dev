@@ -11,6 +11,7 @@ const platformLabels: Record<string, string> = {
   android: "📱 Android",
   desktop: "🖥 Desktop",
   bot: "🤖 Bot",
+  framework: "🛠 Framework",
   unavailable: "公開終了",
 };
 
